@@ -26,6 +26,11 @@ SECRET_KEY = 'django-insecure-bzpmoospm4d6q#kv0#n430-t-!2z%(sk&*bcbyk$rtonmls31b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#ALLOWED_HOSTS = [
+#
+ #   'localhost'
+#]
+
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 # Application definition
@@ -188,16 +193,19 @@ SIMPLE_JWT = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://rubbani-brothers-industry.herokuapp.com",
-    "http://rubbani-brothers-industry.herokuapp.com",
-    # "http://127.0.0.1:5500"
-]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "https://rubbani-brothers-industry.herokuapp.com",
-    "http://rubbani-brothers-industry.herokuapp.com",
-]
+
+CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS", "").split(",")
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+
+
+#CORS_ALLOWED_ORIGINS = [
+#   "http://localhost:3000",
+
+#]
+
+#CSRF_TRUSTED_ORIGINS = [
+ #   "http://localhost:3000",
+  #  "http://localhost:8000",
+
+#]
