@@ -26,11 +26,7 @@ SECRET_KEY = 'django-insecure-bzpmoospm4d6q#kv0#n430-t-!2z%(sk&*bcbyk$rtonmls31b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'muddassirtahiri.pythonanywhere.com',
-    'rubbani-industry-backend.herokuapp.com',
-    'localhost'
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 # Application definition
 AUTH_USER_MODEL = 'app.User'
